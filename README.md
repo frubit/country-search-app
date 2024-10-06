@@ -8,3 +8,4 @@ Start the backend api by running
     python3 manage.py runserver
 
 I used React for the frontend using react-bootstrap for styling. Frontend is coded using javascript.
+If cloning the repository run npm install to get required node modules.
