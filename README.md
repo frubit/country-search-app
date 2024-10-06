@@ -1,5 +1,4 @@
 Author: Finn Bruton
-Date: 05/10/2024
 
 This is my submission for the WorkHuman Technical Challenge:
 
