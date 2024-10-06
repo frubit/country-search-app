@@ -18,6 +18,7 @@ function Home(){
 		setSelectedCountry(message.toUpperCase());
 	};
 
+	// Fetches data
 	useEffect(() =>{
 		const fetchCountry = async () => {
 
@@ -35,22 +36,24 @@ function Home(){
 			fetchCountry();
 	}, []);
 
+	// Once data is fetched we must filter it for required country
 	useEffect(() => {
 
 		const filtered = data.filter(country =>
-			country.name.toUpperCase().includes(selectedCountry)
+			country.name.toUpperCase().includes(selectedCountry) // Countries from backend and entered country are set to uppercase to remove case sensitivity
 			);
-			setFilteredCountries(filtered);
+			setFilteredCountries(filtered); // Creates list of required countries
 
 		}, [selectedCountry, data]);
 			
 	const displayData = () => {
-
+		// Checks if country is in database
 		if(filteredCountries.length === 0){
 			return(
 				<h2> It looks like that country isn't in our database! </h2>
 			);
 		}
+			// If in database outputs all countries matching search
 			return(
 			<div>
 				{filteredCountries.map(country => (
@@ -65,6 +68,7 @@ function Home(){
 	return(
 		<div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'flex-start', minHeight: '100vh'}}>
 			<div style={{width: '35rem', textAlign: 'center', marginBottom: '20px'}}>
+				// Search Bar
 				<Form>
 					<Form.Group>
 						<Form.Label style={{fontSize:46, color:'rgb(84,107,89)'}}> Country </Form.Label>
