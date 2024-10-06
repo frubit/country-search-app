@@ -1,4 +1,4 @@
-import { Form, Button, Card } from "react-bootstrap";
+import { Form, Button, ListGroup } from "react-bootstrap";
 import { useState, useEffect } from "react";
 
 function Home(){
@@ -9,47 +9,53 @@ function Home(){
 	const [clicked, setClicked] = useState(false);
 
 	const onChangeHandler = (message) => {
-		const userInput = message.target.value.toUpperCase()
-		setMessage(inputValue)
+		const userInput = message.target.value;
+		setMessage(userInput);
 	}
 
 	const onClickHandler = () => {
-		setClicked(true)
-		setSelectedCountry(message)
-	}
+		setClicked(true);
+		setSelectedCountry(message.toUpperCase());
+	};
 
 	useEffect(() =>{
 		const fetchCountry = async () => {
-			try {
-				const response = await fetch(`http://127.0.0.1:8000/api/country/`);
-				if (!response.ok) {
-					throw new Error('Bad Response');
-				}
-				const data = await response.json();
-				setData(data)
-				} catch (errro) {
-					console.error("Error fetching countries:", error);
-				}
-			};
-			fetchCountries();
+
+				fetch(`http://127.0.0.1:8000/api/country/`)
+				.then(response => response.json())
+				.then(data => {
+					console.log(data)
+					setData(data)
+				})
+				.catch(error=> {
+					console.error("Error Displaying Countries: ", error)
+				})
+			
+			}
+			fetchCountry();
 	}, []);
 
 	useEffect(() => {
 
-		const filtered = countries.filter(country =>
+		const filtered = data.filter(country =>
 			country.name.toUpperCase().includes(selectedCountry)
 			);
 			setFilteredCountries(filtered);
 
 		}, [selectedCountry, data]);
 			
-		const displayData = () => {
+	const displayData = () => {
 
-			return (
+		if(filteredCountries.length === 0){
+			return(
+				<h2> It looks like that country isn't in our database! </h2>
+			);
+		}
+			return(
 			<div>
-				{filteredCountries.map((country) => (
-				<ListGroup key={country}>
-					<ListGroup.Item> {country} </ListGroup.Item>
+				{filteredCountries.map(country => (
+				<ListGroup key={country.name}>
+					<ListGroup.Item> {country.name} </ListGroup.Item>
 				</ListGroup>
 				))}
 			</div>
