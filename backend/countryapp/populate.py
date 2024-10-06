@@ -1,3 +1,5 @@
+# Code used for populating sqlite database
+
 from country.models import Country
 
 countries = [
