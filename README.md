@@ -2,7 +2,8 @@ Author: Finn Bruton
 
 This is my submission for the WorkHuman Technical Challenge:
 
-I used DjangoRest API for backend and coded the backend in python. I populated the database using python3 manage.py shell
+I used DjangoRestFramwork for backend and coded the backend in python. 
+It contains one module Country and I populated the database using python3 manage.py shell.
 Start the backend api by running 
     python3 manage.py runserver
 
