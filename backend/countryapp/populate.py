@@ -3,7 +3,7 @@
 from country.models import Country
 
 countries = [
- "Brazil", "Belgium", "Canada", "China", "France", "Germany",
+ "Albania", "Andorra", "Australia", "Brazil", "Belgium", "Canada", "China", "France", "Germany",
  "India", "Indonesia", "Ireland", "Italy", "Japan",
  "Kenya", "Luxembourg", "Mexico", "New Zealand", "Nigeria", "Portugal", "Russia",
  "South Africa", "South Korea", "Spain", "Sweden", "Thailand", "Ukraine",
