@@ -64,11 +64,10 @@ function Home(){
 			</div>
 		);
 		}
-			
+	// Search bar
 	return(
 		<div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'flex-start', minHeight: '100vh'}}>
 			<div style={{width: '35rem', textAlign: 'center', marginBottom: '20px'}}>
-				// Search Bar
 				<Form>
 					<Form.Group>
 						<Form.Label style={{fontSize:46, color:'rgb(84,107,89)'}}> Country </Form.Label>
